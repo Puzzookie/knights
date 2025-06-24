@@ -157,20 +157,14 @@ function KnightsTour({ puzzle, cols }) {
   const containerHeight = rows * 50 + 120;
 
   return (
-    <div
-      className="knights-tour-container"
-      style={{
-        width: containerWidth,
-        height: containerHeight,
-      }}
-    >
+    <div className="knights-tour-container">    
       <div
         className="board"
         style={{
-          gridTemplateColumns: `repeat(${cols}, 50px)`,
-          gridTemplateRows: `repeat(${rows}, 50px)`,
+            gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`
         }}
-      >
+        >
+
         {board.map((row, i) =>
           row.map((cell, j) => {
             const isStart = currentPos && currentPos.x === i && currentPos.y === j;
