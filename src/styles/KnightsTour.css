@@ -1,0 +1,135 @@
+.knights-tour-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+.board {
+  display: grid;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  background: #f9f9f9;
+  gap: 0;
+  /* grid-template-columns and rows will be inline styles */
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #bbb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: default;
+  background-color: #eee;
+  box-sizing: border-box;
+}
+
+.cell.available {
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+.cell.blocked {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.cell.visited {
+  background-color: #8bc34a;
+  color: white;
+  cursor: default;
+}
+
+.cell.current {
+  background-color: #4caf50;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  animation: pulse 1.5s infinite;
+  cursor: default;
+  z-index: 2; /* Add this */
+}
+
+.cell.next-move {
+  border: 3px solid #4caf50;
+  animation: glow 1.5s infinite alternate;
+  cursor: pointer;
+}
+
+.cell:hover:not(.blocked):not(.visited) {
+  background-color: #d4f5d4;
+  transform: scale(1.05);
+  }
+
+.controls {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.btn {
+  background-color: #1976d2;
+  border: none;
+  color: white;
+  padding: 8px 18px;
+  margin: 0 8px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:disabled {
+  background-color: #a9a9a9;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #004ba0;
+}
+
+.messages {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.instructions {
+  color: #333;
+}
+
+.success {
+  color: #2e7d32;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.warning {
+  color: #4caf50;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 10px 4px rgba(76, 175, 80, 0.9);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 4px 2px #4caf50;
+  }
+  100% {
+    box-shadow: 0 0 10px 4px #8bc34a;
+  }
+}
